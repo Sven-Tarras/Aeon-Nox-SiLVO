@@ -79,59 +79,49 @@
 				</focusedlayout>
 				<content>
 					<item id="9">
-						<label>Main menu</label>
-						<onclick>noop</onclick>
+						<label>31445</label>
 						<icon />
 					</item>
 					<item id="1">
 						<label>513</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="2">
 						<label>16000</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="3">
 						<label>31014</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="4">
 						<label>10038</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="5">
 						<label>31312</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="6">
 						<label>31365</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="8">
 						<label>31155</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 					<item id="7">
 						<label>10043</label>
-						<onclick>noop</onclick>
 						<icon />
 					</item>
 				</content>
 			</control>
 			<control type="image">
 				<description>LOGO</description>
-				<left>82</left>
-				<top>861</top>
-				<width>356</width>
-				<height>120</height>
-				<aspectratio>keep</aspectratio>
+				<left>60</left>
+				<top>875</top>
+				<width>400</width>
+				<height>130</height>
 				<texture>aeon-nox-logo.png</texture>
 			</control>
 			<include>SystemRightPanel</include>
@@ -142,6 +132,7 @@
 				<width>1316</width>
 				<height>60</height>
 				<texture border="1">separator2.png</texture>
+				<visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
 			</control>
 			<control type="textbox">
 				<description>description area</description>
@@ -199,7 +190,7 @@
 						<label>31913</label>
 						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[lowermainmenuVar][/COLOR]</label2>
 						<onclick>Skin.ToggleSetting(lowermainmenu)</onclick>
-						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 					</control>
 					<control type="button" id="1002">
 						<include>SettingsButtonCommonValues</include>
@@ -213,7 +204,7 @@
 						<label>   - $LOCALIZE[31263]</label>
 						<onclick>Skin.ToggleSetting(Disable.IconsMenuLabel)</onclick>
 						<selected>Skin.HasSetting(Disable.IconsMenuLabel)</selected>
-						<visible>String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 					</control>
 					<control type="button" id="1004">
 						<include>SettingsButtonCommonValues</include>
@@ -226,35 +217,35 @@
 						<label>$LOCALIZE[31436]</label>
 						<onclick>Skin.ToggleSetting(CenteredInfoLine)</onclick>
 						<selected>Skin.HasSetting(CenteredInfoLine)</selected>
-						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 					</control>
 					<control type="button" id="1005">
 						<include>SettingsButtonCommonValues</include>
 						<label>$LOCALIZE[20304]</label>
 						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[RSSLabelVar][/COLOR]</label2>
 						<onclick>$VAR[RSSPositionVar]</onclick>
-						<visible>system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+						<visible>system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 					</control>
 					<control type="button" id="1006">
 						<include>SettingsButtonCommonValues</include>
 						<label>$LOCALIZE[20304]</label>
 						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[VerticalMenuRSSLabelVar][/COLOR]</label2>
 						<onclick>$VAR[VerticalMenuRSSPositionVar]</onclick>
-						<visible>system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+						<visible>system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 					</control>
 					<control type="button" id="1007">
 						<include>SettingsButtonCommonValues</include>
 						<label>$LOCALIZE[31280]</label>
 						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[VerticalMenuSystemBarPositionLabelVar][/COLOR]</label2>
 						<onclick>$VAR[VerticalMenuSystemBarPositionVar]</onclick>
-						<visible>String.IsEqual(Skin.String(MainMenu.Layout),15) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
+						<visible>String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
 					</control>
 					<control type="radiobutton" id="1008">
 						<include>SettingsButtonCommonValues</include>
 						<label>   - $LOCALIZE[31157]</label>
 						<onclick>Skin.ToggleSetting(Enable.VisibleSubmenu)</onclick>
 						<selected>Skin.HasSetting(Enable.VisibleSubmenu)</selected>
-						<visible>[!String.IsEqual(Skin.String(MainMenu.Layout),15) + !String.IsEqual(Skin.String(RSS.Position),$LOCALIZE[571]) + system.getbool(lookandfeel.enablerssfeeds)] | [!String.IsEqual(Skin.String(MainMenu.Layout),15) + !system.getbool(lookandfeel.enablerssfeeds)]</visible>
+						<visible>[!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !String.IsEqual(Skin.String(RSS.Position),$LOCALIZE[571]) + system.getbool(lookandfeel.enablerssfeeds)] | [!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !system.getbool(lookandfeel.enablerssfeeds)]</visible>
 					</control>
 					<control type="radiobutton" id="1010">
 						<include>SettingsButtonCommonValues</include>
@@ -292,7 +283,7 @@
 					</control>
 					<control type="radiobutton" id="1016">
 						<include>SettingsButtonCommonValues</include>
-						<label>Hide home window elements when pressing back</label>
+						<label>$LOCALIZE[31446]</label>
 						<onclick>Skin.ToggleSetting(Home.Hide)</onclick>
 						<selected>Skin.HasSetting(Home.Hide)</selected>
 					</control>
@@ -386,8 +377,8 @@
 					<control type="radiobutton" id="3007">
 						<include>SettingsButtonCommonValues</include>
 						<label>$LOCALIZE[31282]</label>
-						<onclick>Skin.ToggleSetting(Disable.StartupIntro)</onclick>
-						<selected>Skin.HasSetting(Disable.StartupIntro)</selected>
+						<onclick>Skin.ToggleSetting(Enable.StartupIntro)</onclick>
+						<selected>Skin.HasSetting(Enable.StartupIntro)</selected>
 					</control>
 					<control type="radiobutton" id="3005">
 						<include>SettingsButtonCommonValues</include>
@@ -596,8 +587,8 @@
 					<control type="button" id="6001">
 						<include>SettingsButtonCommonValues</include>
 						<label>$LOCALIZE[31281]</label>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">ActivateWindow(1140)</onclick>
+						<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">ActivateWindow(1140)</onclick>
 					</control>
 					<control type="button" id="6002">
 						<include>SettingsButtonCommonValues</include>
@@ -640,7 +631,7 @@
 						<include>SettingsButtonCommonValues</include>
 					</control>
 					<control type="radiobutton" id="8012">
-						<label>Disable widget fanart</label>
+						<label>$LOCALIZE[31444]</label>
 						<onclick>Skin.ToggleSetting(Disable.WidgetFanart)</onclick>
 						<selected>Skin.HasSetting(Disable.WidgetFanart)</selected>
 						<include>SettingsButtonCommonValues</include>
@@ -651,8 +642,8 @@
 						<selected>Skin.HasSetting(Enable.GlobalWidgetBack)</selected>
 						<include>SettingsButtonCommonValues</include>
 					</control>
-					<control type="button" id="803">
-						<label> - $LOCALIZE[31702]</label>
+					<control type="button" id="8003">
+						<label>   - $LOCALIZE[31702]</label>
 						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[WidgetBackLabelVar][/COLOR]</label2>
 						<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
 						<onclick>SetProperty(CustomSelectWidgetBack,True)</onclick>
@@ -688,9 +679,9 @@
 				<control type="grouplist" id="9007">
 					<description>control area</description>
 					<left>522</left>
-					<top>32</top>
+					<top>2</top>
 					<width>1316</width>
-					<height>810</height>
+					<height>900</height>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
 					<onright>60</onright>
@@ -701,16 +692,15 @@
 					<control type="image" id="7000">
 						<description>LOGO</description>
 						<left>383</left>
-						<top>-40</top>
+						<top>10</top>
 						<width>550</width>
-						<height>200</height>
-						<aspectratio  align="center" aligny="top">keep</aspectratio>
+						<height>178.75</height>
 						<texture>aeon-nox-logo.png</texture>
 					</control>
 					<control type="label" id="7001">
-						<top>-25</top>
+						<top>-18</top>
 						<width>1316</width>
-						<height>40</height>
+						<height>30</height>
 						<align>center</align>
 						<textcolor>grey</textcolor>
 						<font>font_skinversion</font>

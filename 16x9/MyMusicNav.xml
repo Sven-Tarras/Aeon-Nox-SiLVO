@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<views>50,51,52,54,55,57,500,501,503,506,609,507,508,592</views>
 	<menucontrol>9051</menucontrol>
@@ -34,29 +35,30 @@
 			<include condition="!Skin.HasSetting(Enable.SlimList)">MusicList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimMusicList</include>
 			<!-- view id = 50 -->
-			<include>MusicInfoWall</include>
+			<include condition="!Skin.HasSetting(Disable.InfoWallView)">MusicInfoWall</include>
 			<!-- view id = 51 -->
-			<include>View_52_Landscape</include>
+			<include condition="!Skin.HasSetting(Disable.LandscapeView)">VideoInfoWall</include>
+			<include condition="!Skin.HasSetting(Disable.LandscapeView)">View_52_Landscape</include>
 			<!-- view id = 52 -->
-			<include>View_54_ShowCase</include>
+			<include condition="!Skin.HasSetting(Disable.ShowCaseView)">View_54_ShowCase</include>
 			<!-- view id = 54 -->
-			<include>MusicTriPanel</include>
+			<include condition="!Skin.HasSetting(Disable.TriPanelView)">MusicTriPanel</include>
 			<!-- view id = 55 -->
-			<include>AlbumShift</include>
+			<include condition="!Skin.HasSetting(Disable.ShiftView)">AlbumShift</include>
 			<!-- view id = 57 -->
-			<include>MusicWall</include>
+			<include condition="!Skin.HasSetting(Disable.IconsView)">MusicWall</include>
 			<!-- view id = 500 -->
-			<include>MusicLowList</include>
+			<include condition="!Skin.HasSetting(Disable.LowListView)">MusicLowList</include>
 			<!-- view id = 501 -->
-			<include>View_503_Wall</include>
+			<include condition="!Skin.HasSetting(Disable.WallView)">View_503_Wall</include>
 			<!-- view id = 503 -->
-			<include>Music_RightList</include>
+			<include condition="!Skin.HasSetting(Disable.RightListView)">Music_RightList</include>
 			<!-- view id = 506 -->
-			<include>View_507_BigList</include>
+			<include condition="!Skin.HasSetting(Disable.BigListView)">View_507_BigList</include>
 			<!-- view id = 507 -->
-			<include>View_508_SongList</include>
+			<include condition="!Skin.HasSetting(Disable.SongListView)">View_508_SongList</include>
 			<!-- view id = 508 -->
-			<include>View_609_Fullscreen_Wall</include>
+			<include condition="!Skin.HasSetting(Disable.FullscreenWallView)">View_609_Fullscreen_Wall</include>
 			<!-- view id = 609 -->
 		</control>
 		<control type="group">
@@ -249,6 +251,7 @@
 					<description>Go to playlist</description>
 					<include>ButtonCommonValues</include>
 					<label>13350</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
 				</control>
@@ -256,6 +259,7 @@
 					<description>Get more</description>
 					<include>ButtonCommonValues</include>
 					<label>$LOCALIZE[21452]</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ActivateWindow(addonbrowser,addons://more/audio/,return)</onclick>
 					<visible>Container.Content(addons)</visible>
 				</control>
@@ -270,6 +274,7 @@
 					<description>PartyMode</description>
 					<label>589</label>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[MyMusicNavMusicPartyModeLabelVar][/COLOR]</label2>
 				</control>
 				<control type="button" id="6121">

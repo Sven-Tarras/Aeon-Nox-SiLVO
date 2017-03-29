@@ -4,6 +4,7 @@
 	<menucontrol>9051</menucontrol>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(Disable.NextAired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<controls>
@@ -117,54 +118,53 @@
 			<include>InfoPanel</include>
 		</control>
 		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+			<include>WindowOpenCloseAnimation</include>
 			<include condition="!Skin.HasSetting(Enable.SlimList)">VideoList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimVideoList</include>
 			<!-- view id = 50 -->
-			<include>VideoInfoWall</include>
+			<include condition="!Skin.HasSetting(Disable.InfoWallView)">VideoInfoWall</include>
 			<!-- view id = 51 -->
-			<include>View_52_Landscape</include>
+			<include condition="!Skin.HasSetting(Disable.LandscapeView)">View_52_Landscape</include>
 			<!-- view id = 52 -->
-			<include>View_53_ShowCase</include>
+			<include condition="!Skin.HasSetting(Disable.ShowCaseView)">View_53_ShowCase</include>
 			<!-- view id = 53 -->
-			<include>VideoTriPanel</include>
+			<include condition="!Skin.HasSetting(Disable.TriPanelView)">VideoTriPanel</include>
 			<!-- view id = 55 -->
-			<include>Video_56_Posters</include>
+			<include condition="!Skin.HasSetting(Disable.PostersView)">Video_56_Posters</include>
 			<!-- view id = 56 -->
-			<include>PosterShift</include>
+			<include condition="!Skin.HasSetting(Disable.ShiftView)">PosterShift</include>
 			<!-- view id = 57 -->
-			<include>BannerWall</include>
+			<include condition="!Skin.HasSetting(Disable.BannerWallView)">BannerWall</include>
 			<!-- view id = 58 -->
-			<include>View_59_Logo</include>
+			<include condition="!Skin.HasSetting(Disable.LogoView)">View_59_Logo</include>
 			<!-- view id = 59 -->
-			<include>Wall_Large</include>
+			<include condition="!Skin.HasSetting(Disable.SmallIconsView)">Wall_Large</include>
 			<!-- view id = 499 -->
-			<include>VideoWall</include>
+			<include condition="!Skin.HasSetting(Disable.IconsView)">VideoWall</include>
 			<!-- view id = 500 -->
-			<include>VideoLowList</include>
+			<include condition="!Skin.HasSetting(Disable.LowListView)">VideoLowList</include>
 			<!-- view id = 501 -->
-			<include>VideoEpisode</include>
+			<include condition="!Skin.HasSetting(Disable.EpisodeView)">VideoEpisode</include>
 			<!-- view id = 502 -->
-			<include>View_503_Wall</include>
+			<include condition="!Skin.HasSetting(Disable.WallView)">View_503_Wall</include>
 			<!-- view id = 503 -->
-			<include>View_504_Gallery</include>
+			<include condition="!Skin.HasSetting(Disable.GalleryView)">View_504_Gallery</include>
 			<!-- view id = 504 -->
-			<include>View_505_Panel</include>
+			<include condition="!Skin.HasSetting(Disable.PanelView)">View_505_Panel</include>
 			<!-- view id = 505 -->
-			<include>Video_RightList</include>
+			<include condition="!Skin.HasSetting(Disable.RightListView)">Video_RightList</include>
 			<!-- view id = 506 -->
-			<include>View_507_BigList</include>
+			<include condition="!Skin.HasSetting(Disable.BigListView)">View_507_BigList</include>
 			<!-- view id = 507 -->
-			<include>View_509_MyFlix</include>
+			<include condition="!Skin.HasSetting(Disable.MyFlixView)">View_509_MyFlix</include>
 			<!-- view id = 509 -->
-			<include>View_591_BigFan</include>
+			<include condition="!Skin.HasSetting(Disable.BigFanView)">View_591_BigFan</include>
 			<!-- view id = 591 -->
-			<include>BannerPlex</include>
+			<include condition="!Skin.HasSetting(Disable.BannerPlexView)">BannerPlex</include>
 			<!-- view id = 601 -->
-			<include>VideoFanartList</include>
+			<include condition="!Skin.HasSetting(Disable.FanartListView)">VideoFanartList</include>
 			<!-- view id = 602 -->
-			<include>View_609_Fullscreen_Wall</include>
+			<include condition="!Skin.HasSetting(Disable.FullscreenWallView)">View_609_Fullscreen_Wall</include>
 			<!-- view id = 609 -->
 		</control>
 		<include>UpDownShadow</include>
@@ -551,8 +551,8 @@
 				<control type="group">
 					<visible>Control.IsVisible(499) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | [Control.IsVisible(58) + Skin.HasSetting(Disable.BannerWallInfo)] | Control.IsVisible(601)</visible>
 					<animation effect="slide" start="0" end="40" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
-					<animation effect="slide" start="0" end="60" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(55)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="80,15" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
+					<animation effect="slide" start="0" end="20,20" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(55)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="70,20" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
 					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(addons)]</visible>
 					<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 					<control type="group">
@@ -573,25 +573,19 @@
 							<control type="image">
 								<left>230</left>
 								<include>MediaFlagValues</include>
-								<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-								<visible>!ListItem.IsParentFolder + !Skin.HasSetting(coloredflags)</visible>
-							</control>
-							<control type="image">
-								<left>230</left>
-								<include>MediaFlagValues</include>
-								<texture fallback="flags/colored/mpaa/NR.png">$VAR[ColoredRatingFlagVar]</texture>
-								<visible>!ListItem.IsParentFolder + Skin.HasSetting(coloredflags)</visible>
+								<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
+								<visible>!ListItem.IsParentFolder</visible>
 							</control>
 						</control>
 					</control>
 					<control type="grouplist">
-						<left>800</left>
+						<left>860</left>
 						<top>1000</top>
 						<width>1000</width>
 						<height>90</height>
 						<align>right</align>
 						<orientation>horizontal</orientation>
-						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(55)]</visible>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons)] + !ListItem.IsCollection</visible>
 						<control type="image">
 							<width>168</width>
 							<include>MediaFlagValues</include>
@@ -616,38 +610,11 @@
 							<texture>$VAR[MediaFlagsPathVar]/audiochannels/$INFO[ListItem.AudioChannels,,.png]</texture>
 							<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
 						</control>
-					</control>
-					<control type="grouplist">
-						<left>825</left>
-						<top>1000</top>
-						<width>1000</width>
-						<height>90</height>
-						<orientation>horizontal</orientation>
-						<align>right</align>
-						<visible>![Container.Content(tvshows) | Container.Content(seasons)] + Control.IsVisible(55)</visible>
 						<control type="image">
 							<width>168</width>
 							<include>MediaFlagValues</include>
-							<texture>$VAR[MediaFlagsPathVar]/resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
-							<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-						</control>
-						<control type="image">
-							<width>168</width>
-							<include>MediaFlagValues</include>
-							<texture>$VAR[MediaFlagsPathVar]/videocodec/$VAR[SourceFlagVar]</texture>
-							<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
-						</control>
-						<control type="image">
-							<width>168</width>
-							<include>MediaFlagValues</include>
-							<texture>$VAR[MediaFlagsPathVar]/audiocodec/$INFO[ListItem.AudioCodec,,.png]</texture>
-							<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-						</control>
-						<control type="image">
-							<width>168</width>
-							<include>MediaFlagValues</include>
-							<texture>$VAR[MediaFlagsPathVar]/audiochannels/$INFO[ListItem.AudioChannels,,.png]</texture>
-							<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
+							<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
+							<visible>!ListItem.IsParentFolder</visible>
 						</control>
 					</control>
 				</control>
@@ -677,14 +644,8 @@
 						<control type="image">
 							<left>1690</left>
 							<include>MediaFlagValues</include>
-							<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-							<visible>!ListItem.IsParentFolder + !ListItem.IsCollection + !Skin.HasSetting(coloredflags)</visible>
-						</control>
-						<control type="image">
-							<left>1690</left>
-							<include>MediaFlagValues</include>
-							<texture fallback="flags/colored/mpaa/NR.png">$VAR[ColoredRatingFlagVar]</texture>
-							<visible>!ListItem.IsParentFolder + !ListItem.IsCollection + Skin.HasSetting(coloredflags)</visible>
+							<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
+							<visible>!ListItem.IsParentFolder + !ListItem.IsCollection</visible>
 						</control>
 					</control>
 					<control type="grouplist">
@@ -785,16 +746,8 @@
 					<width>200</width>
 					<colordiffuse>grey</colordiffuse>
 					<include>MediaFlagValues</include>
-					<texture fallback="flags/colored/mpaa/NR.png">$VAR[ColoredRatingFlagVar]</texture>
-					<visible>Skin.HasSetting(coloredflags) + !ListItem.IsParentFolder + !ListItem.IsCollection</visible>
-				</control>
-				<control type="image">
-					<left>165</left>
-					<width>200</width>
-					<colordiffuse>grey</colordiffuse>
-					<include>MediaFlagValues</include>
-					<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-					<visible>!Skin.HasSetting(coloredflags)	 + !ListItem.IsParentFolder + !ListItem.IsCollection</visible>
+					<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
+					<visible>!ListItem.IsParentFolder + !ListItem.IsCollection</visible>
 				</control>
 				<control type="image">
 					<left>400</left>
@@ -862,15 +815,8 @@
 						<left>165</left>
 						<width>200</width>
 						<include>MediaFlagValues</include>
-						<texture fallback="flags/colored/rating/NR.png">$VAR[ColoredRatingFlagVar]</texture>
-						<visible>Skin.HasSetting(coloredflags) + !ListItem.IsParentFolder</visible>
-					</control>
-					<control type="image">
-						<left>165</left>
-						<width>200</width>
-						<include>MediaFlagValues</include>
-						<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-						<visible>!Skin.HasSetting(coloredflags) + !ListItem.IsParentFolder</visible>
+						<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -1101,6 +1047,7 @@
 					<description>Go to playlist</description>
 					<include>ButtonCommonValues</include>
 					<label>13350</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
 				</control>
@@ -1108,6 +1055,7 @@
 					<description>Get more</description>
 					<include>ButtonCommonValues</include>
 					<label>$LOCALIZE[21452]</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ActivateWindow(addonbrowser,addons://more/video/,return)</onclick>
 					<visible>Container.Content(addons)</visible>
 				</control>
@@ -1118,7 +1066,7 @@
 					<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
 					<visible>!String.IsEmpty(Container.PluginName)</visible>
 				</control>
-				<control type="button" id="699">
+				<control type="button" id="6122">
 					<description>Enable fullscreen</description>
 					<include>ButtonCommonValues</include>
 					<label>$LOCALIZE[244]</label>
@@ -1156,7 +1104,6 @@
 				<onright condition="!Control.IsVisible(506)">Action(nextletter)</onright>
 				<onright condition="!Control.IsVisible(506)">SetFocus(615)</onright>
 				<onright condition="Control.IsVisible(506)">4400</onright>
-				<onclick>noop</onclick>
 				<onback>50</onback>
 			</control>
 			<control type="image">

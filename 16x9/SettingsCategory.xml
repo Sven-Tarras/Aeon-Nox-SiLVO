@@ -5,6 +5,7 @@
 	<onload condition="!System.HasAddon(script.skinshortcuts)">ActivateWindow(1126)</onload>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<controls>
 		<include>CommonBackground</include>
@@ -99,11 +100,10 @@
 			</control>
 			<control type="image">
 				<description>LOGO</description>
-				<left>82</left>
-				<top>861</top>
-				<width>356</width>
-				<height>120</height>
-				<aspectratio>keep</aspectratio>
+				<left>60</left>
+				<top>875</top>
+				<width>400</width>
+				<height>130</height>
 				<texture>aeon-nox-logo.png</texture>
 			</control>
 		</control>
@@ -165,9 +165,9 @@
 		</control>
 		<control type="image" id="11">
 			<description>separator image</description>
+			<width>1316</width>
 			<height>2</height>
-			<texture border="0,0,0,2">separator2.png</texture>
-			<visible>no</visible>
+			<texture colordiffuse="$VAR[ThemeLabelColor]">new_pvr/osd_line_white.png</texture>
 		</control>
 		<control type="label" id="14">
 			<description>Default Label</description>

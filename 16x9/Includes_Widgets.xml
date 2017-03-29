@@ -3,47 +3,47 @@
 	<!-- WIDGET 1 -->
 	<include name="Widget1">
 		<control type="group" id="90010">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="1920,0" end="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="1920,0" start="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="1920,0" end="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="1920,0" start="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowClose</animation>
 			<animation effect="fade" start="100" end="0" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="400" delay="400" tween="quadratic" easing="out" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
-			<animation effect="slide" end="0,-349" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" end="220,-64" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
-			<animation effect="slide" end="425,-64" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
-			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List) + ControlGroup(90010).HasFocus">Conditional</animation>
-			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List)  + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + ControlGroup(90020).HasFocus">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90010).HasFocus">Conditional</animation>
+			<animation effect="slide" end="0,-349" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="220,-64" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
+			<animation effect="slide" end="425,-64" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
+			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List) + ControlGroup(90010).HasFocus">Conditional</animation>
+			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List)  + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90010).HasFocus">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.PanelInfo) + ControlGroup(90020).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.PanelInfo) + String.IsEqual(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + ControlGroup(90020).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List)">Conditional</animation>
-			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetStyle))</visible>
+			<animation effect="fade" start="100" end="0" time="0" condition="!Skin.HasSetting(Enable.PanelInfo) + String.IsEqual(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + ControlGroup(90020).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List)">Conditional</animation>
+			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetName))</visible>
 			<include>skinshortcuts-template-widget1</include>
 		</control>
 	</include>
 	<!-- WIDGET 2 -->
 	<include name="Widget2">
 		<control type="group" id="90020">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + Skin.HasSetting(lowermainmenu)">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="1920,0" end="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="1920,0" start="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="1920,0" end="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="1920,0" start="0,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">WindowClose</animation>
 			<animation effect="fade" start="100" end="0" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="400" delay="400" tween="quadratic" easing="out" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
-			<animation effect="slide" end="0,601" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<animation effect="slide" end="220,633" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
-			<animation effect="slide" end="425,633" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
-			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List) + ControlGroup(90020).HasFocus">Conditional</animation>
-			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + ControlGroup(90010).HasFocus">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90020).HasFocus">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.PanelInfo) + ControlGroup(90010).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List)">Conditional</animation>
+			<animation effect="slide" end="0,601" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="220,633" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
+			<animation effect="slide" end="425,633" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
+			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List) + ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),List) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + ControlGroup(90010).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(Enable.WidgetHide) + !ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(Enable.PanelInfo) + ControlGroup(90010).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.PanelInfo) + String.IsEqual(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + ControlGroup(90010).HasFocus + !String.Contains(Container(9000).ListItem.Property(widgetStyle),List)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(Disable.Videoinfo) + Player.HasVideo + !ControlGroup(90020).HasFocus">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(Disable.Musicinfo) + Player.HasAudio + !ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(Disable.Videoinfo) + Player.HasVideo + !ControlGroup(90020).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(Disable.Musicinfo) + Player.HasAudio + !ControlGroup(90020).HasFocus">Conditional</animation>
 			<animation effect="fade" start="100" end="0" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetLiveTV)) + [PVR.HasNonRecordingTimer | PVR.IsRecording] + !ControlGroup(90020).HasFocus">Conditional</animation>
-			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetStyle.2))</visible>
+			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetName.2))</visible>
 			<include>skinshortcuts-template-widget2</include>
 		</control>
 	</include>
@@ -62,21 +62,21 @@
 	<!-- Widget Info Visible 1 -->
 	<include name="InfoVisible1">
 		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + String.IsEqual(Container(9000).ListItem.Property(widgetPanelInfo),Enabled) + Control.HasFocus($PARAM[id])]</visible>
-		<animation effect="slide" end="0,950" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
-		<animation effect="slide" end="0,697" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">Conditional</animation>
+		<animation effect="slide" end="0,950" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+		<animation effect="slide" end="0,697" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">Conditional</animation>
 		<animation effect="fade" time="100" tween="sine" easing="inout">VisibleChange</animation>
 	</include>
 	<!-- Widget Info Visible 2 -->
 	<include name="InfoVisible2">
 		<visible>[Skin.HasSetting(Enable.PanelInfo) + Control.HasFocus($PARAM[id])] | [!Skin.HasSetting(Enable.PanelInfo) + String.IsEqual(Container(9000).ListItem.Property(widgetPanelInfo.2),Enabled) + Control.HasFocus($PARAM[id])]</visible>
-		<animation effect="slide" end="0,-950" condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
-		<animation effect="slide" end="0,-697" condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">Conditional</animation>
+		<animation effect="slide" end="0,-950" condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+		<animation effect="slide" end="0,-697" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">Conditional</animation>
 		<animation effect="fade" time="100" tween="sine" easing="inout">VisibleChange</animation>
 	</include>
 	<include name="Info">
 		<!-- Poster -->
 		<control type="group">
-			<visible>String.IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + String.IsEmpty(Container($PARAM[id]).ListItem.ChannelName) + String.IsEmpty(Container($PARAM[id]).ListItem.Artist) + String.IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) + String.IsEmpty(Container($PARAM[id]).ListItem.AddonName) + !$PARAM[widgetSquare]</visible>
+			<visible>String.IsEmpty(Container($PARAM[id]).ListItem.Property(Label3)) + String.IsEmpty(Container($PARAM[id]).ListItem.ChannelName) + String.IsEmpty(Container($PARAM[id]).ListItem.Artist) + String.IsEmpty(Container($PARAM[id]).ListItem.AlbumArtist) + String.IsEmpty(Container($PARAM[id]).ListItem.AddonName) + !$PARAM[widgetSquare] + ![ControlGroup(90010).HasFocus + String.IsEqual(Container(9000).ListItem.Property(WidgetType),pvr)] + ![ControlGroup(90020).HasFocus + String.IsEqual(Container(9000).ListItem.Property(WidgetType.2),pvr)]</visible>
 			<include content="InfoContent">
 				<param name="id">$PARAM[id]</param>
 				<param name="Texture">$VAR[HomeWidget$PARAM[id]PosterVar]</param>
@@ -112,7 +112,7 @@
 		</control>
 		<!-- Square - Keep Aspect -->
 		<control type="group">
-			<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.ChannelName)</visible>
+			<visible>[ControlGroup(90010).HasFocus + String.IsEqual(Container(9000).ListItem.Property(WidgetType),pvr)] | [ControlGroup(90020).HasFocus + String.IsEqual(Container(9000).ListItem.Property(WidgetType.2),pvr)]</visible>
 			<include content="InfoContent">
 				<param name="id">$PARAM[id]</param>
 				<param name="Texture">$VAR[HomeWidget$PARAM[id]PosterVar]</param>
@@ -134,7 +134,7 @@
 		<control type="image">
 			<top>-40</top>
 			<width>$PARAM[widthBack]</width>
-			<height>390</height>
+			<height>391</height>
 			<texture colordiffuse="99FFFFFF">homewidgets/list_shadow.png</texture>
 		</control>
 		<!-- Poster Art -->
@@ -207,42 +207,54 @@
 				<bordersize>20</bordersize>
 				<visible>String.IsEmpty(Skin.String(Widget.CaseInfo)) | [ControlGroup(90010).HasFocus + String.IsEmpty(Container(9000).ListItem.Property(widgetCase)) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)] | [ControlGroup(90020).HasFocus + String.IsEmpty(Container(9000).ListItem.Property(widgetCase.2)) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)]</visible>
 			</control>
-			<control type="image">
+			<control type="multiimage">
 				<width>310</width>
 				<height>310</height>
 				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
-				<texture background="true" fallback="DefaultMovies.png">$PARAM[Texture]</texture>
-				<fadetime>IconCrossfadeTime</fadetime>
+				<imagepath background="true" fallback="DefaultMovies.png">$PARAM[Texture]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>70</timeperimage>
+				<fadetime>1</fadetime>
+				<randomize>false</randomize>
 				<visible>String.IsEmpty(Skin.String(Widget.CaseInfo)) | [ControlGroup(90010).HasFocus + String.IsEmpty(Container(9000).ListItem.Property(widgetCase)) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)] | [ControlGroup(90020).HasFocus + String.IsEmpty(Container(9000).ListItem.Property(widgetCase.2)) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)]</visible>
 			</control>
-			<control type="image">
+			<control type="multiimage">
 				<left>6</left>
 				<top>6</top>
 				<width>298</width>
 				<height>298</height>
 				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
-				<texture background="true" fallback="DefaultMovies.png">$PARAM[Texture]</texture>
-				<fadetime>IconCrossfadeTime</fadetime>
+				<imagepath background="true" fallback="DefaultMovies.png">$PARAM[Texture]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>70</timeperimage>
+				<fadetime>1</fadetime>
+				<randomize>false</randomize>
 				<visible>String.IsEqual(Skin.String(Widget.CaseInfo),Glass) | [ControlGroup(90010).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Glass) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)] | [ControlGroup(90020).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase.2),Glass) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)]</visible>
 			</control>
-			<control type="image">
+			<control type="multiimage">
 				<left>28</left>
 				<top>4</top>
 				<width>278</width>
 				<height>302</height>
 				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
-				<texture background="true" fallback="DefaultMovies.png">$PARAM[Texture]</texture>
-				<fadetime>IconCrossfadeTime</fadetime>
+				<imagepath background="true" fallback="DefaultMovies.png">$PARAM[Texture]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>70</timeperimage>
+				<fadetime>1</fadetime>
+				<randomize>false</randomize>
 				<visible>String.IsEqual(Skin.String(Widget.CaseInfo),Case) | [ControlGroup(90010).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Case) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)] | [ControlGroup(90020).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase.2),Case) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)]</visible>
 			</control>
-			<control type="image">
+			<control type="multiimage">
 				<left>28</left>
 				<top>4</top>
 				<width>278</width>
 				<height>302</height>
 				<aspectratio aligny="$PARAM[Align]">$PARAM[Aspect]</aspectratio>
-				<texture background="true" fallback="DefaultMovies.png">$PARAM[Texture]</texture>
-				<fadetime>IconCrossfadeTime</fadetime>
+				<imagepath background="true" fallback="DefaultMovies.png">$PARAM[Texture]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>70</timeperimage>
+				<fadetime>1</fadetime>
+				<randomize>false</randomize>
 				<visible>String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case) | [ControlGroup(90010).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase),Clear Case) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)] | [ControlGroup(90020).HasFocus + String.IsEqual(Container(9000).ListItem.Property(widgetCase.2),Clear Case) + String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel)]</visible>
 			</control>
 			<control type="image">
@@ -290,6 +302,7 @@
 				<textcolor>white2</textcolor>
 				<shadowcolor>shadow</shadowcolor>
 				<label>$PARAM[Info1]</label>
+				<scroll>true</scroll>
 			</control>
 			<!-- Info 2 -->
 			<control type="label">
@@ -307,7 +320,7 @@
 			<!-- Plot -->
 			<control type="textbox">
 				<width>$PARAM[Width]</width>
-				<height>143</height>
+				<height>149</height>
 				<font>font14_textbox</font>
 				<align>justify</align>
 				<textcolor>white2</textcolor>
@@ -319,28 +332,30 @@
 	</include>
 	<!-- Widget Navigation 1 -->
 	<include name="HorizontalNavigation1">
-		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + Control.IsVisible(90020) + Skin.HasSetting(lowermainmenu)">90020</onup>
-		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</ondown>
-		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</ondown>
-		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">9000</onleft>
-		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
-		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
-		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + Control.IsVisible(90020)">90020</ondown>
-		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90020) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
-		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90020) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020) + Skin.HasSetting(lowermainmenu)">90020</onup>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</ondown>
+		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020)">90020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onback>9000</onback>
 	</include>
 	<!-- Widget Navigation 2 -->
 	<include name="HorizontalNavigation2">
-		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Skin.HasSetting(lowermainmenu)">9000</onup>
-		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + Control.IsVisible(90010) + Skin.HasSetting(lowermainmenu)">90010</ondown>
-		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90010) + [System.HasMediaDVD | Control.IsVisible(9027)] + Skin.HasSetting(lowermainmenu)">9020</ondown>
-		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90010) + ![System.HasMediaDVD | Control.IsVisible(9027)] + Skin.HasSetting(lowermainmenu)">9000</ondown>
-		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),15)">9000</onleft>
-		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + Control.IsVisible(90010)">90010</onup>
-		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90010) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
-		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + !Control.IsVisible(90010) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
-		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
-		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),15) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(lowermainmenu)">9000</onup>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90010) + Skin.HasSetting(lowermainmenu)">90010</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + [System.HasMediaDVD | Control.IsVisible(9027)] + Skin.HasSetting(lowermainmenu)">9020</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + ![System.HasMediaDVD | Control.IsVisible(9027)] + Skin.HasSetting(lowermainmenu)">9000</ondown>
+		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90010)">90010</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onback>9000</onback>
 	</include>
 	<!-- List WIDGETS -->
 	<!-- List Artwork  -->
@@ -670,34 +685,30 @@
 	<!-- Panel WIDGETS -->
 	<!-- Panel Background -->
 	<include name="PanelBack">
-		<control type="image">
-			<left></left>
+		<control type="group">
+			<include>HomeWidgetTrans</include>
 			<centerleft>50%</centerleft>
+			<left />
 			<top>-21</top>
 			<width>$PARAM[backWidth]</width>
 			<height>$PARAM[backHeight]</height>
-			<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
-			<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
-			<include>HomeWidgetTrans</include>
-		</control>
-		<control type="image">
-			<left></left>
-			<centerleft>50%</centerleft>
-			<top>-21</top>
-			<width>$PARAM[backWidth]</width>
-			<height>$PARAM[backHeight]</height>
-			<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
-			<texture colordiffuse="$PARAM[backColor]" border="40">$PARAM[Texture]</texture>
-			<include>HomeWidgetTrans</include>
+			<control type="image">
+				<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+				<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+			</control>
+			<control type="image">
+				<texture colordiffuse="$PARAM[backColor]" border="40">$PARAM[Texture]</texture>
+				<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+			</control>
 		</control>
 	</include>
 	<!-- Title Labels -->
 	<include name="PanelLabel">
 		<control type="group">
-			<visible>!String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+			<visible>!String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 			<control type="label">
 				<top>$PARAM[labelBottom]</top>
-				<left></left>
+				<left />
 				<centerleft>50%</centerleft>
 				<width>$PARAM[labelWidth]</width>
 				<height>auto</height>
@@ -733,7 +744,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(MainMenu.Layout),15)</visible>
+			<visible>String.IsEqual(Skin.String(MainMenu.Layout),vertical)</visible>
 			<control type="label">
 				<top>-24</top>
 				<left>$PARAM[labelLeft]</left>
@@ -863,15 +874,19 @@
 				<visible>!$PARAM[fallbackVisible] + !$PARAM[isWeather]</visible>
 				<include>HomeWidgetTrans</include>
 			</control>
-			<control type="image">
+			<control type="multiimage">
 				<left>$PARAM[leftArt]</left>
 				<top>$PARAM[weatherTop]</top>
 				<width>$PARAM[widthArt]</width>
 				<height>$PARAM[weatherHeight]</height>
 				<aspectratio aligny="center">keep</aspectratio>
-				<texture>$PARAM[Texture]</texture>
+				<imagepath>$PARAM[Texture]</imagepath>
 				<visible>$PARAM[isWeather]</visible>
 				<include>HomeWidgetTrans</include>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>70</timeperimage>
+				<fadetime>1</fadetime>
+				<randomize>false</randomize>
 			</control>
 			<control type="image">
 				<left>$PARAM[leftArt]</left>
@@ -986,14 +1001,18 @@
 					<texture fallback="DefaultMovies.png">$PARAM[Texture]</texture>
 					<visible>!$PARAM[fallbackVisible] + !$PARAM[isWeather]</visible>
 				</control>
-				<control type="image">
+				<control type="multiimage">
 					<left>$PARAM[leftArt]</left>
 					<top>$PARAM[weatherTop]</top>
 					<width>$PARAM[widthArt]</width>
 					<height>$PARAM[weatherHeight]</height>
 					<aspectratio aligny="center">keep</aspectratio>
-					<texture>$PARAM[Texture]</texture>
+					<imagepath>$PARAM[Texture]</imagepath>
 					<visible>$PARAM[isWeather]</visible>
+					<aspectratio>keep</aspectratio>
+					<timeperimage>70</timeperimage>
+					<fadetime>1</fadetime>
+					<randomize>false</randomize>
 				</control>
 				<control type="image">
 					<left>$PARAM[leftArt]</left>
@@ -1377,7 +1396,6 @@
 		<item>
 			<label>$LOCALIZE[31909]</label>
 			<icon />
-			<onclick>noop</onclick>
 			<visible>!Weather.IsFetched</visible>
 		</item>
 		<item>
@@ -1396,7 +1414,6 @@
 		<item>
 			<label>$LOCALIZE[31909]</label>
 			<icon />
-			<onclick>noop</onclick>
 			<visible>!Weather.IsFetched</visible>
 		</item>
 		<item>
@@ -1415,7 +1432,6 @@
 		<item>
 			<label>$LOCALIZE[31909]</label>
 			<icon />
-			<onclick>noop</onclick>
 			<visible>!Weather.IsFetched</visible>
 		</item>
 		<item>
@@ -1500,7 +1516,6 @@
 		<item>
 			<label>12390</label>
 			<label2>$INFO[System.Uptime]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/uptime.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/uptime.jpg</property>
 			<property name="Label3">$LOCALIZE[20161]: $INFO[System.TotalUptime]</property>
@@ -1510,7 +1525,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_100.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_100.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1521,7 +1535,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_50.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_50.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1532,7 +1545,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_10.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_10.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1543,7 +1555,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_critical.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_critical.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1554,7 +1565,6 @@
 		<item>
 			<label>705</label>
 			<label2>$INFO[Network.LinkState]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/connected.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/connected.jpg</property>
 			<property name="Label3">$LOCALIZE[443]: $INFO[System.InternetState]</property>
@@ -1565,7 +1575,6 @@
 		<item>
 			<label>705</label>
 			<label2>$INFO[Network.LinkState,$LOCALIZE[442]: ,]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/disconnected.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/disconnected.jpg</property>
 			<property name="Label3">Internet: $INFO[System.InternetState]</property>
@@ -1576,7 +1585,6 @@
 		<item>
 			<label>13280</label>
 			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/video.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/video.jpg</property>
 			<property name="Label3">$INFO[System.fps] FPS</property>
@@ -1587,7 +1595,6 @@
 		<item>
 			<label>13280</label>
 			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/video.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/video.jpg</property>
 			<property name="Label3">$INFO[System.fps] FPS $INFO[System.GPUTemperature]</property>
@@ -1598,7 +1605,6 @@
 		<item>
 			<label>CPU</label>
 			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/cpu.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/cpu.jpg</property>
 			<property name="Label3">$INFO[System.CpuFrequency] $INFO[System.CPUTemperature]</property>
@@ -1609,7 +1615,6 @@
 		<item>
 			<label>CPU</label>
 			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/cpu.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/cpu.jpg</property>
 			<property name="Label3">$INFO[System.CpuFrequency]</property>
@@ -1620,7 +1625,6 @@
 		<item>
 			<label>158</label>
 			<label2>$INFO[System.Memory(free.percent)] $LOCALIZE[156]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/memory.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/memory.jpg</property>
 			<property name="Label3">$INFO[System.Memory(total)] $LOCALIZE[20161]</property>
@@ -1630,7 +1634,6 @@
 		<item>
 			<label>154</label>
 			<label2>$INFO[System.FreeSpacePercent]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/storage.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/storage.jpg</property>
 			<property name="Label3">$INFO[System.TotalSpace]</property>
@@ -1640,7 +1643,6 @@
 		<item>
 			<label>19020</label>
 			<label2>$INFO[Pvr.BackendName]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/pvr.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/pvr.jpg</property>
 			<property name="Label3">$INFO[Pvr.BackendChannels] $LOCALIZE[19019]</property>
@@ -1651,7 +1653,6 @@
 		<item>
 			<label>19114</label>
 			<label2>$INFO[System.BuildVersion]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/system.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/system.jpg</property>
 			<property name="Label3">$INFO[System.BuildDate]</property>
@@ -1663,7 +1664,6 @@
 		<item>
 			<label>12390</label>
 			<label2>$INFO[System.Uptime]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/uptime.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/uptime.jpg</property>
 			<property name="Label3">$LOCALIZE[20161]: $INFO[System.TotalUptime]</property>
@@ -1675,7 +1675,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_100.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_100.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1686,7 +1685,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_50.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_50.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1697,7 +1695,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_10.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_10.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1708,7 +1705,6 @@
 		<item>
 			<label>12395</label>
 			<label2>$INFO[System.BatteryLevel]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/battery_critical.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/battery_critical.jpg</property>
 			<property name="Label3">Remains</property>
@@ -1721,7 +1717,6 @@
 		<item>
 			<label>705</label>
 			<label2>$INFO[Network.LinkState]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/connected.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/connected.jpg</property>
 			<property name="Label3">$LOCALIZE[443]: $INFO[System.InternetState]</property>
@@ -1732,7 +1727,6 @@
 		<item>
 			<label>705</label>
 			<label2>$INFO[Network.LinkState,$LOCALIZE[442]: ,]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/disconnected.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/disconnected.jpg</property>
 			<property name="Label3">Internet: $INFO[System.InternetState]</property>
@@ -1745,7 +1739,6 @@
 		<item>
 			<label>13280</label>
 			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/video.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/video.jpg</property>
 			<property name="Label3">$INFO[System.fps] FPS</property>
@@ -1756,7 +1749,6 @@
 		<item>
 			<label>13280</label>
 			<label2>$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/video.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/video.jpg</property>
 			<property name="Label3">$INFO[System.fps] FPS $INFO[System.GPUTemperature]</property>
@@ -1769,7 +1761,6 @@
 		<item>
 			<label>CPU</label>
 			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/cpu.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/cpu.jpg</property>
 			<property name="Label3">$INFO[System.CpuFrequency] $INFO[System.CPUTemperature]</property>
@@ -1780,7 +1771,6 @@
 		<item>
 			<label>CPU</label>
 			<label2>$INFO[System.CPUUsage(used.percent)]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/cpu.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/cpu.jpg</property>
 			<property name="Label3">$INFO[System.CpuFrequency]</property>
@@ -1793,7 +1783,6 @@
 		<item>
 			<label>158</label>
 			<label2>$INFO[System.Memory(free.percent)] $LOCALIZE[156]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/memory.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/memory.jpg</property>
 			<property name="Label3">$INFO[System.Memory(total)] $LOCALIZE[20161]</property>
@@ -1805,7 +1794,6 @@
 		<item>
 			<label>154</label>
 			<label2>$INFO[System.FreeSpacePercent]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/storage.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/storage.jpg</property>
 			<property name="Label3">$INFO[System.TotalSpace]</property>
@@ -1817,7 +1805,6 @@
 		<item>
 			<label>19020</label>
 			<label2>$INFO[Pvr.BackendName]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/pvr.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/pvr.jpg</property>
 			<property name="Label3">$INFO[Pvr.BackendChannels] $LOCALIZE[19019]</property>
@@ -1830,7 +1817,6 @@
 		<item>
 			<label>19114</label>
 			<label2>$INFO[System.BuildVersion]</label2>
-			<onclick>noop</onclick>
 			<icon>homewidgets/systeminfo/square/system.png</icon>
 			<property name="Fanart">special://skin/backgrounds/widgets/systeminfo/fanart/system.jpg</property>
 			<property name="Label3">$INFO[System.BuildDate]</property>

@@ -1,5 +1,5 @@
 # Kodi Media Center language file
-# Addon Name: Aeon Nox 5: SiLVO
+# Addon Name: Aeon Nox: SiLVO
 # Addon id: skin.aeon.nox.silvo
 # Addon Provider: SiLVO
 msgid ""
@@ -390,7 +390,7 @@ msgstr "Fanart en plein écran"
 
 msgctxt "#31093"
 msgid "LowList toggle"
-msgstr "Activation/désactivation de la liste basse"
+msgstr "Activation ou désactivation de la liste basse"
 
 msgctxt "#31094"
 msgid "List view layout"
@@ -1220,21 +1220,17 @@ msgctxt "#31397"
 msgid "Custom Widget"
 msgstr "Widget personnalisé"
 
+msgctxt "#31400"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region · Setup remote controls[CR]Set up a screensaver · Setup master lock"
+msgstr "[B]CONFIGURER LES ]PARAMÈTRES DE L'INTERFACE[/B][CR]Changer l'habillage · Configurer la langue et la région · Configurer les télécommandes[CR]Configurer un économiseur d'écran · Configurer le verrou maître"
+
 msgctxt "#31403"
 msgid "Reset skin settings"
 msgstr "Réinitialiser les paramètres de l'habillage"
 
-msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR][CR]Check out your hardware · Monitor CPU usage[CR]Check Kodi revision number"
-msgstr "[B]SURVEILLER VOTRE SYSTÈME[/B][CR][CR]Vérifier votre matériel · Surveiller l'utilisation de votre UCT[CR]Vérifier le numéro de révision de Kodi"
-
-msgctxt "#31407"
-msgid "[B]SETUP PROFILES[/B][CR][CR]Setup and manage user profiles · Enable login screen[CR]Change password · Add a profile picture"
-msgstr "[B]PROFILS DE CONFIGURATION[/B][CR][CR]Configurer et gérer les profils utilisateur · Activer l'écran de connexion[CR]Changer le mot de passe · Ajouter une photo au profil"
-
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]CONFIGURER LES PARAMÈTRES DES SERVICES[/B][CR][CR]Configurer le contrôle de Kodi par UPnP et HTTP · Configurer le partage de fichiers[CR]Activer Zéroconf · Configurer AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
+msgstr "[B]CONFIGURER LES PARAMÈTRES DES SERVICES[/B][CR]Mettre en place le contrôle de Kodi par UPnP et HTTP · Configurer le partage de fichiers[CR]Activer Zéroconf · Configurer AirPlay"
 
 msgctxt "#31412"
 msgid "Select section"
@@ -1546,7 +1542,7 @@ msgstr "Afficher le fil RSS en haut ou en bas de l'écran, dépendamment de la p
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-msgstr "Active des informations supplémentaires dans la vidéothèque des émissions télé, comme l'état de l'émission, le prochain/dernier épisode, etc., et dépend de l'addiciel Prochaine diffusion."
+msgstr "Active des informations supplémentaires dans la vidéothèque des émissions télé, comme l'état de l'émission, le prochain ou le dernier épisode, etc., et dépend de l'addiciel Prochaine diffusion."
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
@@ -1618,7 +1614,7 @@ msgstr "Cacher les évaluations dans les vues en liste."
 
 msgctxt "#31962"
 msgid "This toggles the visibility of ratings in views of type List, LowList and TriPanel, except if sorted by rating."
-msgstr "Ceci active/désactive la visibilité des évaluations dans les vues en liste, liste basse et panneau triple, sauf si triée par évaluation."
+msgstr "Cela active ou désactive la visibilité des évaluations dans les vues en liste, liste basse et panneau triple, sauf si triée par évaluation."
 
 msgctxt "#31970"
 msgid "Rate on Trakt"

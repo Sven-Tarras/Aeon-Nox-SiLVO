@@ -2,8 +2,9 @@
 <window>
 	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow,daemon=True)</onload>
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
+	<onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
 	<onload condition="!System.HasAddon(script.tv.show.next.aired)">Skin.SetBool(Disable.NextAired)</onload>
-	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=30)</onload>
+	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=5)</onload>
 	<onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
 	<onload condition="String.IsEmpty(Skin.String(Overlay.Toggle))">SetProperty(Overlay.Path,overlays/showcase/,home)</onload>
 	<onload condition="String.IsEqual(Skin.String(Overlay.Toggle),both) + !Skin.HasSetting(coloredflags)">SetProperty(Overlay.Path,overlays/showcase/1/,home)</onload>
@@ -14,10 +15,10 @@
 	<onload condition="String.IsEqual(Skin.String(Overlay.Toggle),unwatched) + Skin.HasSetting(coloredflags)">SetProperty(Overlay.Path,overlays/showcase/6/,home)</onload>
 	<onload condition="!Skin.HasSetting(Disable.Resumable)">SetProperty(Overlay.Resumable,True,home)</onload>
 	<!-- Intro -->
-	<onload condition="!Skin.HasSetting(Disable.StartupIntro)">AlarmClock(Play Intro,PlayMedia(special://skin/extras/intro.mp4,1),00:01,silent)</onload>
-	<onload condition="Skin.HasSetting(Disable.StartupIntro)">ReplaceWindow($INFO[System.StartupWindow])</onload>
-	<onunload condition="!Skin.HasSetting(Disable.StartupIntro)">PlayerControl(Stop)</onunload>
-	<defaultcontrol condition="!Skin.HasSetting(Disable.StartupIntro)">10</defaultcontrol>
+	<onload condition="Skin.HasSetting(Enable.StartupIntro)">AlarmClock(Play Intro,PlayMedia(special://skin/extras/intro.mp4,1),00:01,silent)</onload>
+	<onload condition="!Skin.HasSetting(Enable.StartupIntro)">ReplaceWindow($INFO[System.StartupWindow])</onload>
+	<onunload condition="Skin.HasSetting(Enable.StartupIntro)">PlayerControl(Stop)</onunload>
+	<defaultcontrol condition="Skin.HasSetting(Enable.StartupIntro)">10</defaultcontrol>
 	<controls>
 		<control type="button" id="10">
 			<include>HiddenObject</include>

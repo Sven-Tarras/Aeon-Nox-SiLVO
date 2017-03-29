@@ -4,7 +4,7 @@
 	<onunload condition="!Window.IsActive(skinsettings)">SetFocus(50)</onunload>
 	<coordinates>
 		<system>1</system>
-		<left>440</left>
+		<left>407.5</left>
 		<top>40</top>
 	</coordinates>
 	<include>DialogOpenCloseAnimation</include>
@@ -113,13 +113,6 @@
 					<label>$LOCALIZE[31136]</label>
 					<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[LiveTvInfobarTypeOptionsLabelVar][/COLOR]</label2>
 					<onclick>$VAR[LiveTvInfobarTypeOptionsClickVar]</onclick>
-				</control>
-				<control type="button" id="409">
-					<width>963</width>
-					<label>$LOCALIZE[31931]</label>
-					<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[LiveTVInfobarPlotTypeOptionsLabelVar][/COLOR]</label2>
-					<onclick>Skin.ToggleSetting(Enable.LiveTVFullPlot)</onclick>
-					<texturenofocus border="1">separator5.png</texturenofocus>
 				</control>
 				<control type="radiobutton" id="406">
 					<label>$LOCALIZE[31137]</label>

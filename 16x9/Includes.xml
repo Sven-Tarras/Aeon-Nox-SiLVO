@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include file="Includes_VideoLyrics.xml" />
 	<include file="Defaults.xml" />
 	<include file="Includes_CommonContent.xml" />
 	<include file="Includes_CommonValues.xml" />
@@ -41,14 +42,6 @@
 	<constant name="IconCrossfadeTime">400</constant>
 	<constant name="MaxDepth">0.30</constant>
 	<constant name="MinDepth">-0.80</constant>
-	<variable name="BannerThumb">
-		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable>
-	<variable name="PosterThumb">
-		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable>
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
 		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
@@ -84,8 +77,7 @@
 			<description>LOGO</description>
 			<top>-15</top>
 			<width>400</width>
-			<height>120</height>
-			<aspectratio>keep</aspectratio>
+			<height>130</height>
 			<texture>aeon-nox-logo.png</texture>
 		</control>
 	</include>
@@ -99,7 +91,7 @@
 		</control>
 	</include>
 	<include name="MediaMenuTop">
-		<top>80</top>
+		<top>60</top>
 		<width>400</width>
 		<height>1080</height>
 		<onleft>9050</onleft>
@@ -220,12 +212,13 @@
 					<textwidth>255</textwidth>
 					<include>ButtonCommonValues</include>
 					<label />
+					<visible>Window.IsActive(tvchannels) | Window.IsActive(tvguide)</visible>
 				</control>
 				<control type="button" id="2">
 					<description>View As button</description>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
-					<visible>!Window.IsActive(tvguide)</visible>
+					<visible>!Window.IsActive(tvguide) + !Window.IsActive(tvrecordings)</visible>
 				</control>
 				<control type="button" id="3">
 					<description>Sort by button</description>
@@ -258,44 +251,50 @@
 					<label>19019</label>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
+					<visible>!Window.IsActive(tvchannels)</visible>
 				</control>
 				<control type="button" id="101">
 					<description>Guide</description>
 					<label>22020</label>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
-					<visible>!Skin.HasSetting(Disable.PVRGuide)</visible>
+					<visible>![Skin.HasSetting(Disable.PVRGuide) | Window.IsActive(tvguide)]</visible>
 				</control>
 				<control type="button" id="102">
 					<description>Recordings</description>
 					<label>19163</label>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
-					<visible>!Skin.HasSetting(Disable.PVRRecordings)</visible>
+					<visible>![Skin.HasSetting(Disable.PVRRecordings) | Window.IsActive(tvrecordings)]</visible>
 				</control>
 				<control type="button" id="103">
 					<description>Timers</description>
 					<label>19040</label>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
-					<visible>!Skin.HasSetting(Disable.PVRTimer)</visible>
+					<visible>![Skin.HasSetting(Disable.PVRTimer) | Window.IsActive(tvtimers)]</visible>
 				</control>
 				<control type="button" id="104">
 					<description>Search</description>
 					<label>137</label>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
-					<visible>!Skin.HasSetting(Disable.PVRSearch)</visible>
+					<visible>![Skin.HasSetting(Disable.PVRSearch) | Window.IsActive(tvsearch)]</visible>
 				</control>
 				<control type="button" id="201">
 					<description>View options</description>
@@ -305,6 +304,14 @@
 					<label>31026</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ThemeLabelColor]</disabledcolor>
+				</control>
+				<control type="button" id="10">
+					<description>Watched toggle</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>$LOCALIZE[20367]</label>
+					<label2>[COLOR $VAR[ThemeLabelColor]]$INFO[Container.NumNonFolderItems][/COLOR]</label2>
+					<visible>Window.IsActive(tvrecordings)</visible>
 				</control>
 				<control type="button" id="330">
 					<description>Settings</description>
@@ -348,7 +355,7 @@
 		</control>
 		<control type="button" id="2002">
 			<include>ButtonCommonValues</include>
-			<label>$LOCALIZE[19190]</label>
+			<label>$LOCALIZE[13200]: $LOCALIZE[19190]</label>
 			<onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
 			<onclick>SetProperty(No.Cases,True,home)</onclick>
 			<onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>
@@ -376,7 +383,7 @@
 	</include>
 	<include name="MediaMenuPlayerControls">
 		<control type="grouplist" id="9950">
-			<top>1020</top>
+			<top>1023</top>
 			<left>-20</left>
 			<height>67</height>
 			<width>440</width>
@@ -500,13 +507,13 @@
 					<width>100%</width>
 					<height>79</height>
 					<texture colordiffuse="$VAR[TopBarColor]">submenu_bar.png</texture>
-					<visible>!Skin.HasSetting(Enable.ColoredTopBar)</visible>
+					<visible>String.IsEmpty(Skin.String(TopBarColor)) | String.IsEqual(Skin.String(TopBarColor),None)</visible>
 				</control>
 				<control type="image">
 					<width>100%</width>
 					<height>80</height>
 					<texture colordiffuse="$VAR[TopBarColor]">submenu_bar_white.png</texture>
-					<visible>Skin.HasSetting(Enable.ColoredTopBar)</visible>
+					<visible>!String.IsEmpty(Skin.String(TopBarColor)) + !String.IsEqual(Skin.String(TopBarColor),None)</visible>
 				</control>
 				<control type="button" id="90022">
 					<label />
@@ -581,14 +588,51 @@
 						<overlaytexture />
 						<info>Player.Progress</info>
 					</control>
+					<control type="label">
+						<top>-28</top>
+						<width>90</width>
+						<height>90</height>
+						<font>IconTiny</font>
+						<textcolor>grey</textcolor>
+						<label> </label>
+						<visible>Player.Playing + Player.HasVideo</visible>
+					</control>
+					<control type="label">
+						<top>-28</top>
+						<width>90</width>
+						<height>90</height>
+						<font>IconTiny</font>
+						<textcolor>grey</textcolor>
+						<label> </label>
+						<visible>Player.Paused + Player.HasVideo</visible>
+					</control>
+					<control type="label">
+						<top>-28</top>
+						<width>90</width>
+						<height>90</height>
+						<font>IconTiny</font>
+						<textcolor>grey</textcolor>
+						<label> </label>
+						<visible>Player.Playing + Player.HasAudio</visible>
+					</control>
+					<control type="label">
+						<top>-28</top>
+						<width>90</width>
+						<height>90</height>
+						<font>IconTiny</font>
+						<textcolor>grey</textcolor>
+						<label> </label>
+						<visible>Player.Paused + Player.HasAudio</visible>
+					</control>
 					<control type="fadelabel">
+						<left>63</left>
 						<top>-4</top>
-						<width>360</width>
+						<width>340</width>
 						<height>90</height>
 						<font>font13_title</font>
-						<textoffsetx>10</textoffsetx>
 						<textcolor>grey</textcolor>
 						<shadowcolor>shadow</shadowcolor>
+						<align>center</align>
 						<aligny>top</aligny>
 						<scroll>true</scroll>
 						<scrollspeed>20</scrollspeed>
@@ -599,12 +643,14 @@
 						<visible>Player.HasAudio</visible>
 					</control>
 					<control type="label">
-						<width>360</width>
+						<left>57</left>
+						<width>320</width>
 						<height>90</height>
 						<font>font13_title</font>
 						<textoffsetx>10</textoffsetx>
 						<textcolor>grey</textcolor>
 						<shadowcolor>shadow</shadowcolor>
+						<align>center</align>
 						<aligny>top</aligny>
 						<textoffsety>-4</textoffsety>
 						<scroll>true</scroll>
@@ -1832,15 +1878,7 @@
 						<width>120</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagValues</include>
-						<texture fallback="flags/default/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-						<visible>!Skin.HasSetting(coloredflags)</visible>
-					</control>
-					<control type="image">
-						<width>120</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagValues</include>
-						<texture fallback="flags/colored/mpaa/NR.png">$VAR[ColoredRatingFlagVar]</texture>
-						<visible>Skin.HasSetting(coloredflags)</visible>
+						<texture fallback="$VAR[MediaFlagsPathVar]/mpaa/NR.png">$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
 					</control>
 					<control type="group">
 						<visible>Container.Content(tvshows) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
@@ -1977,12 +2015,12 @@
 		<item>
 			<label>$LOCALIZE[536]</label>
 			<onclick>Dialog.Close(1129)</onclick>
-			<onclick>Skin.SetString(MainMenu.Layout,10)</onclick>
+			<onclick>Skin.SetString(MainMenu.Layout,icons)</onclick>
 		</item>
 		<item>
 			<label>$LOCALIZE[31994]</label>
 			<onclick>Dialog.Close(1129)</onclick>
-			<onclick>Skin.SetString(MainMenu.Layout,15)</onclick>
+			<onclick>Skin.SetString(MainMenu.Layout,vertical)</onclick>
 		</item>
 	</include>
 	<include name="SelectFanartTimePerImage">
@@ -2237,12 +2275,12 @@
 			<onclick>Skin.Reset(CustomDefaultBackground.path)</onclick>
 		</item>
 		<item>
-			<label>Single image</label>
+			<label>$ADDON[script.skinshortcuts 32051]</label>
 			<onclick>Dialog.Close(1129)</onclick>
 			<onclick>Skin.SetImage(CustomDefaultBackground.path,special://skin/backgrounds)</onclick>
 		</item>
 		<item>
-			<label>Multi image</label>
+			<label>$ADDON[script.skinshortcuts 32052]</label>
 			<onclick>Dialog.Close(1129)</onclick>
 			<onclick>Skin.SetPath(CustomDefaultBackground.path)</onclick>
 		</item>
@@ -2279,6 +2317,18 @@
 			<onclick>Dialog.Close(1129)</onclick>
 			<onclick condition="System.HasAddon(script.toolbox)">Skin.SetString(Viz.Background,4)</onclick>
 			<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
+		</item>
+		<item>
+			<label>$ADDON[script.skinshortcuts 32051]</label>
+			<onclick>Dialog.Close(1129)</onclick>
+			<onclick>Skin.SetString(Viz.Background,5)</onclick>
+			<onclick>Skin.SetImage(CustomMusicBackground.path,special://skin/backgrounds)</onclick>
+		</item>
+		<item>
+			<label>$ADDON[script.skinshortcuts 32052]</label>
+			<onclick>Dialog.Close(1129)</onclick>
+			<onclick>Skin.SetString(Viz.Background,6)</onclick>
+			<onclick>Skin.SetPath(CustomMusicBackground.path)</onclick>
 		</item>
 	</include>
 </includes>

@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onunload>ClearProperty(Progams.Games,Home)</onunload>
 	<views>50,501,51,54,55,500,57,503</views>
@@ -14,19 +15,19 @@
 			<include condition="!Skin.HasSetting(Enable.SlimList)">AddonList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimList</include>
 			<!-- view id = 50 -->
-			<include>AddonInfoWall</include>
+			<include condition="!Skin.HasSetting(Disable.InfoWallView)">AddonInfoWall</include>
 			<!-- view id = 51 -->
-			<include>View_54_ShowCase</include>
+			<include condition="!Skin.HasSetting(Disable.ShowCaseView)">View_54_ShowCase</include>
 			<!-- view id = 54 -->
-			<include>AddonWall</include>
+			<include condition="!Skin.HasSetting(Disable.IconsView)">AddonWall</include>
 			<!-- view id = 500 -->
-			<include>GamesLowList</include>
+			<include condition="!Skin.HasSetting(Disable.LowListView)">GamesLowList</include>
 			<!-- view id = 501 -->
-			<include>GamesTriPanel</include>
+			<include condition="!Skin.HasSetting(Disable.TriPanelView)">GamesTriPanel</include>
 			<!-- view id = 55 -->
-			<include>GamesShift</include>
+			<include condition="!Skin.HasSetting(Disable.ShiftView)">GamesShift</include>
 			<!-- view id = 57 -->
-			<include>View_503_Wall</include>
+			<include condition="!Skin.HasSetting(Disable.WallView)">View_503_Wall</include>
 			<!-- view id = 503 -->
 		</control>
 		<control type="group">
@@ -218,6 +219,14 @@
 					<label>$LOCALIZE[10140]</label>
 					<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
 					<visible>!String.IsEmpty(Container.PluginName)</visible>
+				</control>
+				<control type="button" id="6122">
+					<description>Enable fullscreen</description>
+					<include>ButtonCommonValues</include>
+					<label>$LOCALIZE[244]</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>fullscreen</onclick>
+					<visible>Player.HasMedia</visible>
 				</control>
 			</control>
 			<include>MediaMenuPlayerControls</include>

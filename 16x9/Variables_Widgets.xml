@@ -66,6 +66,7 @@
 		<value>$LOCALIZE[231]</value>
 	</variable>
 	<variable name="WidgetSortbyLabelVar">
+		<value condition="String.IsEqual(Window.Property(widgetSortby),lastplayed)">$LOCALIZE[568]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby),title)">$LOCALIZE[369]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby),tvshowtitle)">$LOCALIZE[36902]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby),date)">$LOCALIZE[552]</value>
@@ -79,6 +80,7 @@
 		<value>$LOCALIZE[571]</value>
 	</variable>
 	<variable name="WidgetSortby2LabelVar">
+		<value condition="String.IsEqual(Window.Property(widgetSortby.2),lastplayed)">$LOCALIZE[568]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby.2),title)">$LOCALIZE[369]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby.2),tvshowtitle)">$LOCALIZE[36902]</value>
 		<value condition="String.IsEqual(Window.Property(widgetSortby.2),date)">$LOCALIZE[552]</value>
@@ -201,7 +203,7 @@
 		<value condition="String.Contains(ListItem.Filename,webdl) | String.Contains(ListItem.Filename,web-dl) | String.Contains(ListItem.Filename,webtv) | String.Contains(ListItem.Filename,web-tv)">webdl.png</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">$INFO[ListItem.VideoResolution]p.png</value>
 		<value condition="!String.IsEmpty(ListItem.Property(VideoResolution))">$INFO[ListItem.Property(VideoResolution)]p.png</value>
-		<value condition="String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.TVShowTitle)">tvseries.png</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType),tvshows)">tvseries.png</value>
 		<value condition="String.IsEmpty(ListItem.Property(VideoResolution)) + String.IsEmpty(ListItem.TVShowTitle) + [!IsEmpty(ListItem.Trailer) | String.Contains(ListItem.FolderPath,extendedinfo)]">trailers.png</value>
 		<value>p.png</value>
 	</variable>

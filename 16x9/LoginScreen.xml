@@ -116,8 +116,8 @@
 				<description>LOGO</description>
 				<left>1482</left>
 				<top>940</top>
-				<width>356</width>
-				<height>120</height>
+				<width>400</width>
+				<height>130</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture>aeon-nox-logo.png</texture>
 			</control>

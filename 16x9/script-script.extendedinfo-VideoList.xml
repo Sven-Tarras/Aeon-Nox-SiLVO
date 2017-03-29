@@ -291,9 +291,9 @@
 			</control>
 			<control type="image">
 				<description>LOGO</description>
+				<top>-15</top>
 				<width>400</width>
-				<height>120</height>
-				<aspectratio>keep</aspectratio>
+				<height>160</height>
 				<texture>aeon-nox-logo.png</texture>
 			</control>
 			<control type="grouplist" id="9000">

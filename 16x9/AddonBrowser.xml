@@ -5,6 +5,7 @@
 	<menucontrol>9051</menucontrol>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<controls>
 		<include>CommonBackground</include>
@@ -13,13 +14,13 @@
 			<include condition="!Skin.HasSetting(Enable.SlimList)">AddonList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimList</include>
 			<!-- view id = 50 -->
-			<include>AddonInfoWall</include>
+			<include condition="!Skin.HasSetting(Disable.InfoWallView)">AddonInfoWall</include>
 			<!-- view id = 51 -->
-			<include>View_54_ShowCase</include>
+			<include condition="!Skin.HasSetting(Disable.ShowCaseView)">View_54_ShowCase</include>
 			<!-- view id = 54 -->
-			<include>MusicTriPanel</include>
+			<include condition="!Skin.HasSetting(Disable.TriPanelView)">MusicTriPanel</include>
 			<!-- view id = 55 -->
-			<include>AddonWall</include>
+			<include condition="!Skin.HasSetting(Disable.IconsView)">AddonWall</include>
 			<!-- view id = 500 -->
 		</control>
 		<control type="group">

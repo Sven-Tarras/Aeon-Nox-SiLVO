@@ -5,6 +5,7 @@
 	<controls>
 		<control type="group">
 			<visible>String.IsEmpty(Window.Property(additionalDialog))</visible>
+			<include>SettingsFadeAnimation</include>
 			<top>59</top>
 			<control type="list" id="211">
 				<left>82</left>
@@ -15,7 +16,6 @@
 				<onup>211</onup>
 				<ondown>211</ondown>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<include>SettingsFadeAnimation</include>
 				<itemlayout height="90" width="356">
 					<control type="image">
 						<top>30</top>
@@ -32,7 +32,7 @@
 						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$VAR[ShortcutsDisabledVar]$INFO[ListItem.Label]</label>
-						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 					</control>
 					<control type="label">
 						<left>50</left>
@@ -44,14 +44,14 @@
 						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$VAR[ShortcutsDisabledVar]$INFO[ListItem.Label]</label>
-						<visible>String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 					</control>
 					<control type="image">
 						<top>10</top>
 						<width>66</width>
 						<height>66</height>
 						<texture colordiffuse="grey2">$INFO[ListItem.Icon]</texture>
-						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="90" width="356">
@@ -76,7 +76,7 @@
 						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$VAR[ShortcutsDisabledVar]$INFO[ListItem.Label]</label>
-						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>!String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 						<animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -89,7 +89,7 @@
 						<selectedcolor>$VAR[ThemeLabelColor]</selectedcolor>
 						<align>right</align>
 						<label>$VAR[ShortcutsDisabledVar]$INFO[ListItem.Label]</label>
-						<visible>String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 						<animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
 					</control>
 					<control type="image">
@@ -97,37 +97,41 @@
 						<width>66</width>
 						<height>66</height>
 						<texture>$INFO[ListItem.Icon]</texture>
-						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + String.IsEqual(Skin.String(MainMenu.Layout),10)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu) + String.IsEqual(Skin.String(MainMenu.Layout),icons)</visible>
 						<animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="textbox">
-				<description>description area</description>
-				<left>552</left>
-				<top>850</top>
-				<width>1256</width>
-				<height>130</height>
-				<font>font16bold_textbox</font>
-				<textcolor>grey2</textcolor>
-				<label>$VAR[MainMenuCustomizerDescriptionVar]</label>
-				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
+			<control type="scrollbar" id="60">
+				<left>1838</left>
+				<top>32</top>
+				<width>14</width>
+				<height>955</height>
+				<onleft>90001</onleft>
+				<onright>211</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+				<showonepage>false</showonepage>
+				<texturesliderbackground />
+				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 			</control>
 			<control type="grouplist" id="90001">
 				<description>control area</description>
 				<left>522</left>
 				<top>32</top>
 				<width>1316</width>
-				<height>810</height>
+				<height>957</height>
 				<onleft>211</onleft>
+				<onright>60</onright>
 				<onup>90001</onup>
 				<ondown>90001</ondown>
+				<pagecontrol>60</pagecontrol>
+				<visible>![ControlGroup(6000).HasFocus | Control.HasFocus(6001) | ControlGroup(7000).HasFocus | Control.HasFocus(7001)]</visible>
 				<control type="button" id="401">
 					<description>Choose shortcut</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32048]</label>
@@ -136,7 +140,7 @@
 				<control type="button" id="305">
 					<description>Change label</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32025]</label>
@@ -146,7 +150,7 @@
 				<control type="button" id="307">
 					<description>Change action</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32027]</label>
@@ -156,7 +160,7 @@
 				<control type="button" id="405">
 					<description>Edit submenu</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31080]</label>
@@ -166,7 +170,7 @@
 				<control type="button" id="310">
 					<description>Change background</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32045]</label>
@@ -178,7 +182,7 @@
 				<control type="button" id="510">
 					<description>Choose infoline</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31049]</label>
@@ -188,82 +192,23 @@
 					<onclick>SendClick(404)</onclick>
 					<texturenofocus border="1">separator5.png</texturenofocus>
 				</control>
-				<control type="button" id="303">
-					<description>Move up</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="304">
-					<description>Move down</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="301">
-					<description>Add shortcut</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32000]</label>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="radiobutton" id="313">
-					<description>Disable shortcut</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$LOCALIZE[24021]</label>
-					<selected>String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</selected>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="302">
-					<description>Delete shortcut</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="308">
-					<description>Restore shortcuts</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32028]</label>
-					<texturenofocus border="1">separator5.png</texturenofocus>
-					<visible>!String.Contains(Window.Property(groupname),.1,right)</visible>
-					<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
 				<control type="button" id="800">
 					<description>Widget 1</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32044] 1</label>
 					<label2>$VAR[Widget1DisplayTitleVar]</label2>
 					<onclick>SetProperty(skinshortcuts-management-widget,1,10000)</onclick>
-					<onclick>Control.SetFocus(1001)</onclick>
+					<onclick>Control.SetFocus(312)</onclick>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<texturenofocus border="1">separator5.png</texturenofocus>
 				</control>
 				<control type="button" id="406">
 					<description>Setup custom widget 1</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>31760</label>
@@ -272,20 +217,20 @@
 				<control type="button" id="801">
 					<description>Widget 2</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32044] 2</label>
 					<label2>$VAR[Widget2DisplayTitleVar]</label2>
 					<onclick>SetProperty(skinshortcuts-management-widget,2,10000)</onclick>
-					<onclick>Control.SetFocus(2001)</onclick>
+					<onclick>Control.SetFocus(2051)</onclick>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<texturenofocus border="1">separator5.png</texturenofocus>
 				</control>
 				<control type="button" id="407">
 					<description>Setup custom widget 2</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>31761</label>
@@ -294,7 +239,7 @@
 				<control type="radiobutton" id="519">
 					<description>Show Live TV Widget</description>
 					<width>1316</width>
-					<height>90</height>
+					<height>79.75</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31273]</label>
@@ -306,6 +251,59 @@
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<texturenofocus border="1">separator5.png</texturenofocus>
 				</control>
+				<control type="radiobutton" id="313">
+					<description>Disable shortcut</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<label>$LOCALIZE[24021]</label>
+					<selected>String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</selected>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+				</control>
+				<control type="button" id="303">
+					<description>Move up</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+				</control>
+				<control type="button" id="304">
+					<description>Move down</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+				</control>
+				<control type="button" id="301">
+					<description>Add shortcut</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<label>$ADDON[script.skinshortcuts 32000]</label>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+				</control>
+				<control type="button" id="302">
+					<description>Delete shortcut</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+				</control>
+				<control type="button" id="308">
+					<description>Restore shortcuts</description>
+					<width>1316</width>
+					<height>79.75</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<label>$ADDON[script.skinshortcuts 32028]</label>
+					<texturenofocus border="1">separator5.png</texturenofocus>
+					<visible>!String.Contains(Window.Property(groupname),.1,right)</visible>
+				</control>
 			</control>
 		</control>
 		<!-- Widget Settings -->
@@ -315,19 +313,6 @@
 			<animation type="Visible" reversible="false">
 				<effect type="fade" end="100" time="150" />
 			</animation>
-			<control type="image">
-				<left>520</left>
-				<top>30</top>
-				<width>1310</width>
-				<height>955</height>
-				<texture>black.png</texture>
-			</control>
-			<control type="image">
-				<left>490</left>
-				<width>1380</width>
-				<height>1020</height>
-				<texture border="40">listpanel_back.png</texture>
-			</control>
 			<!-- Widget 1 -->
 			<control type="group">
 				<visible>String.IsEqual(Window(home).Property(skinshortcuts-management-widget),1)</visible>
@@ -351,12 +336,6 @@
 					<onup>6000</onup>
 					<ondown>6000</ondown>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<control type="button" id="1001">
-						<description>Change widget style 1</description>
-						<include>SettingsButtonCommonValues</include>
-						<label>31701</label>
-						<label2>$VAR[WidgetStyleLabelVar]</label2>
-					</control>
 					<control type="button" id="312">
 						<description>Change widget 1</description>
 						<include>SettingsButtonCommonValues</include>
@@ -364,7 +343,13 @@
 						<label2>$INFO[Window.Property(widgetName)]</label2>
 						<onclick>SetProperty(customProperty,widgetArt)</onclick>
 						<onclick>SendClick(404)</onclick>
-						<visible>!String.IsEmpty(Window.Property(widgetStyle))</visible>
+					</control>
+					<control type="button" id="1001">
+						<description>Change widget style 1</description>
+						<include>SettingsButtonCommonValues</include>
+						<label>31701</label>
+						<label2>$VAR[WidgetStyleLabelVar]</label2>
+						<visible>!String.IsEmpty(Window.Property(widgetName))</visible>
 					</control>
 					<control type="button" id="1004">
 						<description>Change widget art 1</description>
@@ -447,12 +432,7 @@
 					<onup>7000</onup>
 					<ondown>7000</ondown>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<control type="button" id="2001">
-						<description>Change widget style 2</description>
-						<include>SettingsButtonCommonValues</include>
-						<label>31701</label>
-						<label2>$VAR[WidgetStyle2LabelVar]</label2>
-					</control><control type="button" id="2051">
+					<control type="button" id="2051">
 						<description>Change widget 2</description>
 						<include>SettingsButtonCommonValues</include>
 						<label>$ADDON[script.skinshortcuts 32044]</label>
@@ -461,7 +441,13 @@
 						<onclick>SendClick(312)</onclick>
 						<onclick>SetProperty(customProperty,widgetArt.2)</onclick>
 						<onclick>SendClick(404)</onclick>
-						<visible>!String.IsEmpty(Window.Property(widgetStyle.2))</visible>
+					</control>
+					<control type="button" id="2001">
+						<description>Change widget style 2</description>
+						<include>SettingsButtonCommonValues</include>
+						<label>31701</label>
+						<label2>$VAR[WidgetStyle2LabelVar]</label2>
+						<visible>!String.IsEmpty(Window.Property(widgetName.2))</visible>
 					</control>
 					<control type="button" id="2004">
 						<description>Change widget art 2</description>
@@ -524,12 +510,7 @@
 		</control>
 		<!-- 404, for setting custom property -->
 		<control type="button" id="404">
-			<visible>False</visible>
-			<left>-100000</left>
-			<top>-100000</top>
-			<width>1</width>
-			<height>1</height>
-			<onclick>noop</onclick>
+			<include>HiddenObject</include>
 		</control>
 	</controls>
 </window>
