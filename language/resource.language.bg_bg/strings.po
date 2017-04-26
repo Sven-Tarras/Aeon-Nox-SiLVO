@@ -536,6 +536,14 @@ msgctxt "#31413"
 msgid "Local subtitle available"
 msgstr "Налични са локални субтитри"
 
+msgctxt "#31443"
+msgid "Thumb"
+msgstr "Миниатюра"
+
+msgctxt "#31452"
+msgid "Premiered"
+msgstr "Премиера"
+
 msgctxt "#31502"
 msgid "Live TV"
 msgstr "Телевизия"

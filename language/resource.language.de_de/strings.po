@@ -1372,6 +1372,14 @@ msgctxt "#31426"
 msgid "Enter text here..."
 msgstr "Hier Text eingeben"
 
+msgctxt "#31443"
+msgid "Thumb"
+msgstr "Vorschaubild"
+
+msgctxt "#31452"
+msgid "Premiered"
+msgstr "Erstmals ausgestrahlt"
+
 msgctxt "#31501"
 msgid "Channel group"
 msgstr "Sendergruppe"

@@ -1390,7 +1390,7 @@ msgid "NOT SUPPORTED"
 msgstr ""
 
 msgctxt "#31342"
-msgid "Display the status of some add-ons supported in Aeon Nox SiLVO. Select an add-on to install or open its settings if already installed. Press INFO to learn what the add-on does."
+msgid "Display the status of some add-ons supported in Aeon Nox SiLVO. Select an add-on to install or open its settings if already installed."
 msgstr ""
 
 msgctxt "#31343"
@@ -1426,7 +1426,7 @@ msgid "Right"
 msgstr ""
 
 msgctxt "#31351"
-msgid "Enable Netflix style pause screen after 5 seconds"
+msgid "Enable Netflix style pause screen popup"
 msgstr ""
 
 msgctxt "#31352"
@@ -1778,7 +1778,7 @@ msgid "Click to install Artist Slideshow"
 msgstr ""
 
 msgctxt "#31439"
-msgid "The main menu customizer has changed. Add, Delete, Disable, Move Up, Move Down, and Restore have moved to the context menu. To access them add a mapped key or hold select/enter."
+msgid "There are no default backgrounds in this skin, would you like to choose one now?[CR]You can still select one in Skin settings > General if you choose No."
 msgstr ""
 
 msgctxt "#31440"
@@ -1829,7 +1829,11 @@ msgctxt "#31451"
 msgid "  •  Click to Install"
 msgstr ""
 
-#empty strings from id 31452 to 31500
+msgctxt "#31452"
+msgid "Premiered"
+msgstr ""
+
+#empty strings from id 31453 to 31500
 
 msgctxt "#31501"
 msgid "Channel group"

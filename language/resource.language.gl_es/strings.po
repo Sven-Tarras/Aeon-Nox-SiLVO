@@ -732,10 +732,6 @@ msgctxt "#31350"
 msgid "Right"
 msgstr "Dereita"
 
-msgctxt "#31351"
-msgid "Enable Netflix style pause screen after 5 seconds"
-msgstr "Activar o estilo Netflix despois de 5 segundos de por en pausa"
-
 msgctxt "#31352"
 msgid "Inactive"
 msgstr "Inactivo"
@@ -843,6 +839,10 @@ msgstr "subtítulos locais dispoñíbeis"
 msgctxt "#31426"
 msgid "Enter text here..."
 msgstr "Inserir texto aquí..."
+
+msgctxt "#31452"
+msgid "Premiered"
+msgstr "Estrea"
 
 msgctxt "#31501"
 msgid "Channel group"

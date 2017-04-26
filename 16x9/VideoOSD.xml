@@ -5,7 +5,7 @@
 		<left>0</left>
 		<top>0</top>
 	</coordinates>
-	<zorder>5</zorder>
+	<zorder>10</zorder>
 	<onload condition="VideoPlayer.Content(livetv)">SetFocus(808)</onload>
 	<onload condition="!VideoPlayer.Content(livetv) + Skin.HasSetting(Disable.PlayerControlButtons)">SetFocus(706)</onload>
 	<onload condition="!VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.PlayerControlButtons)">SetFocus(602)</onload>
@@ -22,12 +22,12 @@
 			</control>
 			<control type="slider">
 				<description>Seek Slider</description>
-				<top>1014</top>
+				<top>945</top>
 				<width>100%</width>
-				<height>64</height>
+				<height>23</height>
 				<texturesliderbar>seekslider2.png</texturesliderbar>
 				<textureslidernib />
-				<textureslidernibfocus>osd/osd_slider_nib.png</textureslidernibfocus>
+				<textureslidernibfocus colordiffuse="$VAR[ThemeOSDProgressColor]">slidernib_alt.png</textureslidernibfocus>
 				<action>seek</action>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>

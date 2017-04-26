@@ -5,7 +5,7 @@
 		<control type="group">
 			<control type="button" id="8999">
 				<description>Close Window button</description>
-				<left>350</left>
+				<left>365</left>
 				<width>64</width>
 				<height>48</height>
 				<label></label>
@@ -40,7 +40,7 @@
 					<onclick>Skin.ToggleSetting(Disable.Extrafanart)</onclick>
 					<selected>!Skin.HasSetting(Disable.Extrafanart)</selected>
 					<enable>!Skin.HasSetting(Disable.Fanart)</enable>
-					<visible>Window.IsMedia</visible>
+					<visible>Window.IsMedia + System.HasAddon(script.toolbox)</visible>
 				</control>
 				<control type="button" id="901003">
 					<description>Cache extrafanart</description>
@@ -63,7 +63,7 @@
 					<include>ButtonCommonValues</include>
 					<label>$VAR[FallbackBackgroundLabelVar]$LOCALIZE[31117]</label>
 					<onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
-					<onclick>SetProperty(No.Cases,True,home)</onclick>
+					<onclick>SetProperty(No.Cases,True,Home)</onclick>
 					<onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>
 					<onclick>ActivateWindow(1122)</onclick>
 				</control>

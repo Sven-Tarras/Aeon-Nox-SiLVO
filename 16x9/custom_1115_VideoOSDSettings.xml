@@ -6,6 +6,7 @@
 		<left>199</left>
 		<top>210</top>
 	</coordinates>
+	<zorder>10</zorder>
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="image">
@@ -49,13 +50,6 @@
 				<selected>!Skin.HasSetting(Disable.Netflix.Pause)</selected>
 				<texturenofocus border="1">separator5.png</texturenofocus>
 			</control>
-			<!-- <control type="radiobutton" id="90203">
-				<description>Clearart/clearlogo/poster</description>
-				<width>1452</width>
-				<label>$LOCALIZE[31233]</label>
-				<onclick>Skin.ToggleSetting(HideVideoOSDImage)</onclick>
-				<selected>Skin.HasSetting(HideVideoOSDImage)</selected>
-			</control> -->
 			<control type="button" id="90204">
 				<description>Seekbar time format</description>
 				<width>1452</width>

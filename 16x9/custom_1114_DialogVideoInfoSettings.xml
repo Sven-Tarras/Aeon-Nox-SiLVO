@@ -49,7 +49,7 @@
 				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[CinemaVisionButtonLabelVar][/COLOR]</label2>
 				<onclick>$VAR[CinemaVisionButtonOnClickVar]</onclick>
 				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>System.HasAddon(script.cinemavision) + !Skin.HasSetting(Enable.UseExtendedInfo)</visible>
+				<visible>System.HasAddon(script.cinemavision)</visible>
 			</control>
 			<control type="radiobutton" id="90209">
 				<width>1452</width>
@@ -59,9 +59,10 @@
 				<selected>Skin.HasSetting(Disable.ExtendedInfoIntergration)</selected>
 				<label>$LOCALIZE[31127]</label>
 				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Enable.UseExtendedInfo)</visible>
+				<visible>System.HasAddon(script.extendedinfo)</visible>
 			</control>
-			<control type="radiobutton" id="90203">
+			<!-- Replace With Extended Info -->
+			<!-- <control type="radiobutton" id="90203">
 				<width>1452</width>
 				<onclick condition="!Skin.HasSetting(Enable.UseExtendedInfo)">Dialog.Close(1119)</onclick>
 				<onclick condition="!Skin.HasSetting(Enable.UseExtendedInfo)">Dialog.Close(movieinformation)</onclick>
@@ -70,14 +71,14 @@
 				<label>$LOCALIZE[31196]</label>
 				<texturenofocus border="1">separator5.png</texturenofocus>
 				<visible>System.HasAddon(script.extendedinfo)</visible>
-			</control>
+			</control> -->
 			<control type="button" id="90210">
 				<width>1452</width>
 				<label>$LOCALIZE[31442]</label>
 				<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[VideoInfoDimmerLabelVar][/COLOR]</label2>
 				<onclick>$VAR[VideoInfoDimmerOnClickVar]</onclick>
 				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>!Skin.HasSetting(Enable.UseExtendedInfo) + !Skin.HasSetting(Enable.BlurredVideoInfo)</visible>
+				<visible>!Skin.HasSetting(Enable.BlurredVideoInfo)</visible>
 			</control>
 			<control type="radiobutton" id="90204">
 				<width>1452</width>
@@ -85,18 +86,18 @@
 				<onclick condition="!Skin.HasSetting(Enable.BlurredVideoInfo)">Dialog.Close(movieinformation)</onclick>
 				<onclick>Skin.ToggleSetting(Enable.BlurredVideoInfo)</onclick>
 				<selected>Skin.HasSetting(Enable.BlurredVideoInfo)</selected>
-				<label>$LOCALIZE[31173]</label>
+				<label>$LOCALIZE[31174]</label>
 				<texturenofocus border="1">separator5.png</texturenofocus>
-				<visible>System.HasAddon(script.colorbox) + !Skin.HasSetting(Enable.UseExtendedInfo)</visible>
+				<visible>System.HasAddon(script.toolbox)</visible>
 			</control>
-			<control type="radiobutton" id="90205">
+			<!-- <control type="radiobutton" id="90205">
 				<width>1452</width>
 				<onclick>Skin.ToggleSetting(Enable.BlurredVideoInfoExtended)</onclick>
 				<selected>Skin.HasSetting(Enable.BlurredVideoInfoExtended)</selected>
 				<label>$LOCALIZE[31258]</label>
 				<texturenofocus border="1">separator5.png</texturenofocus>
 				<visible>System.HasAddon(script.toolbox)</visible>
-			</control>
+			</control> -->
 			<control type="radiobutton" id="90206">
 				<width>1452</width>
 				<onclick>Skin.ToggleSetting(discartoninfo)</onclick>
